@@ -1,0 +1,18 @@
+### IntelliJ IDEA ###
+.idea/
+*.iws
+*.iml
+*.ipr
+*.ips
+.idea/
+
+#Maven
+.mvn/
+
+# Misc.
+.DS_Store
+*.swp
+*.swo
+
+# Server
+target
