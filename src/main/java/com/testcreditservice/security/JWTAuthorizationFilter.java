@@ -1,6 +1,5 @@
 package com.testcreditservice.security;
 
-import com.testcreditservice.entity.UserEntity;
 import com.testcreditservice.service.UserService;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -31,7 +30,7 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
             if (null != header) {
                 UserDetails user = this.userService.findUserByAccessToken(header);
                 if (null != user) {
-                    UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(user, (Object) null, user.getAuthorities());
+                    UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(user, null, user.getAuthorities());
                     SecurityContextHolder.getContext().setAuthentication(authentication);
                 }
             }
@@ -43,7 +42,7 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
         if (this.jwtUtil.tokenValidate(token)) {
             String username = this.jwtUtil.getUsername(token);
             UserDetails user = this.userService.loadUserByUsername(username);
-            return new UsernamePasswordAuthenticationToken(user, (Object) null, user.getAuthorities());
+            return new UsernamePasswordAuthenticationToken(user, null, user.getAuthorities());
         } else {
             return null;
         }

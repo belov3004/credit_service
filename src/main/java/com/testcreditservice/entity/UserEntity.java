@@ -12,7 +12,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @javax.persistence.Entity
-@Table(name = "users", indexes = {@Index(name = "user_name_idx",  columnList="user_name", unique = true)})
+@Table(name = "users", indexes = {@Index(name = "user_name_idx", columnList = "user_name", unique = true)})
 public class UserEntity implements UserDetails {
     @Id
     @GeneratedValue

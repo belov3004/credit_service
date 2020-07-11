@@ -21,7 +21,6 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
-import java.util.concurrent.TimeUnit;
 
 @Service
 public class CreditServiceImpl implements CreditService {
@@ -56,7 +55,8 @@ public class CreditServiceImpl implements CreditService {
                 System.out.println(applicationsCount);
                 if (applicationsCount >= Long.parseLong(limitStr))
                     throw new CreditLimitException(400, "Submission limit is reached. Please try again later");
-            } catch (NumberFormatException e) {}
+            } catch (NumberFormatException e) {
+            }
         }
 
         CreditApplicationEntity creditApplicationEntity = convertToEntity(request, user);

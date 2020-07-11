@@ -9,5 +9,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface AccessTokenDao extends JpaRepository<AccessTokenEntity, Long>, JpaSpecificationExecutor<AccessTokenEntity> {
     AccessTokenEntity findByToken(String token);
+
     void deleteAccessTokenEntitiesByUser(UserEntity user);
 }

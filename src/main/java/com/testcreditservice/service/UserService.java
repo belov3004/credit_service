@@ -11,12 +11,20 @@ import java.util.List;
 @Service
 public interface UserService extends UserDetailsService {
     PasswordEncoder getPasswordEncoder();
+
     void registerUser(UserDto user);
+
     String loginUser(String username, String Password);
+
     void logoutCurrentUser();
+
     UserEntity findUserByAccessToken(String token);
+
     UserDto findUserByUsername(String username);
+
     List<UserDto> getUsers();
+
     void activateUser(String username);
+
     void blockUser(String username);
 }
